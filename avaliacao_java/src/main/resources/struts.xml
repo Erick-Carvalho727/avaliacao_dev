@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+	
+    <package name="br.com.soc.sistema" extends="struts-default" strict-method-invocation="false">
+        <action name="editarFuncionarios" class="br.com.soc.sistema.action.funcionario.FuncionarioAction" method="editar">
+        	<result name="success" type="redirectAction">todosFuncionarios</result>
+            <result name="redirect" type="redirectAction">todosFuncionarios</result>
+        </action>
+        <action name="deleteFuncionarios" class="br.com.soc.sistema.action.funcionario.FuncionarioAction" method="excluir">
+        	<result name="success" type="redirectAction">todosFuncionarios</result>
+        </action>
+        <action name="pegarFuncionarios" class="br.com.soc.sistema.action.funcionario.FuncionarioAction" method="pegar">
+            <result name="input">/funcionario/cadFuncionario_e.jsp</result>
+        	<result name="redirect" type="redirectAction">todosFuncionarios</result>
+        </action>
+        <action name="*Funcionarios" class="br.com.soc.sistema.action.funcionario.FuncionarioAction" method="{1}">
+        	<result name="success">/funcionario/cadFuncionario_b.jsp</result>
+            <result name="input">/funcionario/cadFuncionario_i.jsp</result>
+            <result name="redirect" type="redirectAction">todosFuncionarios</result>
+        </action>
+        <action name="editarExames" class="br.com.soc.sistema.action.exame.ExameAction" method="editar">
+        	<result name="success" type="redirectAction">todosExames</result>
+            <result name="redirect" type="redirectAction">todosExames</result>
+        </action>
+        <action name="deleteExames" class="br.com.soc.sistema.action.exame.ExameAction" method="excluir">
+        	<result name="success" type="redirectAction">todosExames</result>
+        </action>
+        <action name="pegarExames" class="br.com.soc.sistema.action.exame.ExameAction" method="pegar">
+            <result name="input">/exame/cadExame_e.jsp</result>
+        	<result name="redirect" type="redirectAction">todosExames</result>
+        </action>
+        <action name="*Exames" class="br.com.soc.sistema.action.exame.ExameAction" method="{1}">
+        	<result name="success">/exame/cadExame_b.jsp</result>
+            <result name="input">/exame/cadExame_i.jsp</result>
+        	<result name="redirect" type="redirectAction">todosExames</result>
+        </action>
+        <action name="editarExamesFunc" class="br.com.soc.sistema.action.exameFunc.ExameFuncAction" method="editar">
+        	<result name="success" type="redirectAction">todosExamesFunc</result>
+            <result name="redirect" type="redirectAction">todosExamesFunc</result>
+        </action>
+        <action name="relatorioExamesFunc" class="br.com.soc.sistema.action.exameFunc.ExameFuncAction" method="relatorio">
+        	<result name="input">/exameFunc/cadExameFunc_r.jsp</result>
+        	<result name="redirect" type="redirectAction">todosExamesFunc</result>
+        </action>
+        <action name="deleteExamesFunc" class="br.com.soc.sistema.action.exameFunc.ExameFuncAction" method="excluir">
+        	<result name="success" type="redirectAction">todosExamesFunc</result>
+        </action>
+        <action name="pegarExamesFunc" class="br.com.soc.sistema.action.exameFunc.ExameFuncAction" method="pegar">
+            <result name="input">/exameFunc/cadExameFunc_e.jsp</result>
+        	<result name="redirect" type="redirectAction">todosExamesFunc</result>
+        </action>
+        <action name="*ExamesFunc" class="br.com.soc.sistema.action.exameFunc.ExameFuncAction" method="{1}">
+        	<result name="success">/exameFunc/cadExameFunc_b.jsp</result>
+            <result name="input">/exameFunc/cadExameFunc_i.jsp</result>
+        	<result name="redirect" type="redirectAction">todosExamesFunc</result>
+        </action>
+    </package>
+</struts>
